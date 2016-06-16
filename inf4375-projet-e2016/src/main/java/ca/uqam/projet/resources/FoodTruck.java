@@ -8,6 +8,8 @@ public class FoodTruck {
 	@JsonProperty("geometry") Geometry location;
 	@JsonProperty("properties") Properties info;
 
+	public Properties getInfo() { return info; }
+
 	@Override
 	public String toString() {
 		return "TYPE --->" + type + info.toString();
