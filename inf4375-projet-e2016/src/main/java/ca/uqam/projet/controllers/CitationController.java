@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class CitationController {
 
   @Autowired CitationRepository repository;
+  @Autowired FoodTruckController repo;
 
   @RequestMapping("/citations")
   public List<Citation> findAll() {
@@ -24,4 +25,16 @@ public class CitationController {
   public Citation findById(@PathVariable("id") int id) {
     return repository.findById(id);
   }
+
+  @RequestMapping("/trucks")
+  public List<Truck> findAllT() {
+  	return repo.findAll();
+  }
+
+  @RequestMapping("/horaires-camions")
+  public List<Truck> findAllByDate(@RequestParam(value = "du") String dateDebut,
+                                   @RequestParam(value = "au") String dateFin) {
+      return repo.findAllByDate(dateDebut, dateFin);
+  }
+
 }

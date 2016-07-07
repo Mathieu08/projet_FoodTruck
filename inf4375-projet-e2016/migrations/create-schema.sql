@@ -1,7 +1,10 @@
+create extension postgis;
+
 create table trucks(
     id text,
     nom text,
     lieu text,
+    position geography(POINT, 4326),
     dateTruck text,
     heureDebut text,
     heureFin text,

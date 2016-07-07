@@ -9,6 +9,7 @@ public class FoodTruck {
 	@JsonProperty("properties") Properties info;
 
 	public Properties getInfo() { return info; }
+	public Geometry getLocation() { return location; }
 
 	@Override
 	public String toString() {
