@@ -1,4 +1,4 @@
-package ca.uqam.projet.repositories;
+package ca.uqam.projet.tasks;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +23,7 @@ public class BixiTask {
 
 	@Autowired private JdbcTemplate jdbcTemplate;
 
-	@Scheduled(cron="* */10 * * * ?")
+	@Scheduled(cron="0 0/10 * * * ?")
 	@PostConstruct
 	public void execute() {
 		RestTemplate restTemplate = new RestTemplate();

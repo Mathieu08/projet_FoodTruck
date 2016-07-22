@@ -4,6 +4,7 @@ import java.util.*;
 import java.time.*;
 
 import ca.uqam.projet.repositories.*;
+import ca.uqam.projet.tasks.*;
 import ca.uqam.projet.resources.*;
 
 import org.springframework.beans.factory.annotation.*;

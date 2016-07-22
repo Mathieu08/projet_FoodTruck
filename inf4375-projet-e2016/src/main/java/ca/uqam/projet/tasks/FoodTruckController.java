@@ -1,4 +1,4 @@
-package ca.uqam.projet.repositories;
+package ca.uqam.projet.tasks;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +25,7 @@ public class FoodTruckController {
 
     @Autowired private JdbcTemplate jdbcTemplate;
 
-    @Scheduled(cron="* 0,12 * * * ?")
+    @Scheduled(cron="* * 0,12 * * ?")
     @PostConstruct
     public void execute() {
     	RestTemplate restTemplate = new RestTemplate();
