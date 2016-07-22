@@ -15,6 +15,7 @@ public class CitationController {
 
   @Autowired CitationRepository repository;
   @Autowired FoodTruckController repo;
+  @Autowired BixiTask repoStations;
 
   @RequestMapping("/citations")
   public List<Citation> findAll() {
@@ -35,6 +36,12 @@ public class CitationController {
   public List<Truck> findAllByDate(@RequestParam(value = "du") String dateDebut,
                                    @RequestParam(value = "au") String dateFin) {
       return repo.findAllByDate(dateDebut, dateFin);
+  }
+
+  @RequestMapping("/stations")
+  public List<StationBixi> findAllByDistance(@RequestParam(value = "lon") Double lon,
+                                         @RequestParam(value = "lat") Double lat) {
+      return repoStations.findAllByDistance(lon, lat);
   }
 
 }

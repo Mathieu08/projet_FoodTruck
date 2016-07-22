@@ -43,6 +43,8 @@ public class FoodTruckController {
       + "   id,"
       + "   nom,"
       + "   lieu,"
+      + "   ST_X(position::geometry),"
+      + "   ST_Y(position::geometry),"
       + "   dateTruck,"
       + "   heureDebut,"
       + "   heureFin"
@@ -59,6 +61,8 @@ public class FoodTruckController {
     + "   id,"
     + "   nom,"
     + "   lieu,"
+    + "   ST_X(position::geometry),"
+    + "   ST_Y(position::geometry),"
     + "   dateTruck,"
     + "   heureDebut,"
     + "   heureFin"
@@ -75,6 +79,7 @@ public class FoodTruckController {
     private static final String INSERT_STMT =
       " INSERT INTO trucks (id, nom, lieu, position, dateTruck, heureDebut, heureFin)"
     + " VALUES (?, ?, ?, ST_MakePoint(?, ?),?, ?, ?)"
+    + " on conflict do nothing"
 	;
 
 	public int insert(FoodTruck camion){
@@ -98,6 +103,8 @@ public class FoodTruckController {
                 rs.getString("id"),
                 rs.getString("nom"),
                 rs.getString("lieu"),
+                rs.getDouble("ST_X"),
+                rs.getDouble("ST_Y"),
                 rs.getString("dateTruck"),
                 rs.getString("heureDebut"),
                 rs.getString("heureFin")
