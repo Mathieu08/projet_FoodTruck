@@ -14,19 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/")
 public class CitationController {
 
-  @Autowired CitationRepository repository;
-  @Autowired FoodTruckController repo;
-  @Autowired BixiTask repoStations;
-
-  @RequestMapping("/citations")
-  public List<Citation> findAll() {
-    return repository.findAll();
-  }
-
-  @RequestMapping("/citations/{id}")
-  public Citation findById(@PathVariable("id") int id) {
-    return repository.findById(id);
-  }
+  @Autowired FoodTruckRepository repo;
 
   @RequestMapping("/trucks")
   public List<Truck> findAllT() {
@@ -37,12 +25,6 @@ public class CitationController {
   public List<Truck> findAllByDate(@RequestParam(value = "du") String dateDebut,
                                    @RequestParam(value = "au") String dateFin) {
       return repo.findAllByDate(dateDebut, dateFin);
-  }
-
-  @RequestMapping("/stations")
-  public List<StationBixi> findAllByDistance(@RequestParam(value = "lon") Double lon,
-                                         @RequestParam(value = "lat") Double lat) {
-      return repoStations.findAllByDistance(lon, lat);
   }
 
 }
