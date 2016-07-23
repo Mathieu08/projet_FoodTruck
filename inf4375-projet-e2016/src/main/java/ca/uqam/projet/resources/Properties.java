@@ -19,8 +19,4 @@ public class Properties {
 	public String getHeureFin() { return heureFin; }
 	public String getIdTruck() { return idTruck; }
 
-	@Override
-	public String toString() {
-		return "TYPE --->" + camion + lieu + date + idTruck;
-	}
 }

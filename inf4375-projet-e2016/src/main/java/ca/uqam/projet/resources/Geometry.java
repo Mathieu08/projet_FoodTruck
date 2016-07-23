@@ -9,9 +9,4 @@ public class Geometry {
 
 	public Double getLon() { return coordonnees[0]; }
 	public Double getLat() { return coordonnees[1]; }
-
-	@Override
-	public String toString() {
-		return "TYPE --->" + type;
-	}
 }

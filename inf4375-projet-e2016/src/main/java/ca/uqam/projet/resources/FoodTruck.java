@@ -10,9 +10,4 @@ public class FoodTruck {
 
 	public Properties getInfo() { return info; }
 	public Geometry getLocation() { return location; }
-
-	@Override
-	public String toString() {
-		return "TYPE --->" + type + info.toString();
-	}
 }

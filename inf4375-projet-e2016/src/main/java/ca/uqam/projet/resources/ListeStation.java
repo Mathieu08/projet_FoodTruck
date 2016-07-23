@@ -11,11 +11,5 @@ public class ListeStation {
 	private Station stations[];
 
 	public List<Station> getStations() { return Arrays.asList(stations); }
-
-	@Override
-	public String toString() {
-		return "Le nom=====> " + stations[0].getNom();
-	}
-
 	
 }

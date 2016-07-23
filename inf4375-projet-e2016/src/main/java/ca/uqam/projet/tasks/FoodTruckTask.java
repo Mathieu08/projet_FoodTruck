@@ -30,12 +30,11 @@ public class FoodTruckTask {
     public void execute() {
     	RestTemplate restTemplate = new RestTemplate();
       ListeTruck lcamion = restTemplate.getForObject(URL, ListeTruck.class);
-      log.info("ici" + lcamion.toString());
       List<FoodTruck> liste = lcamion.getTruck();
       for (int i = 0; i<liste.size(); ++i) {
       	repository.insert(liste.get(i));
       }
-        
+      log.info("Insertion des Food Trucks dans la BD.");        
     }
 
     

@@ -9,8 +9,4 @@ public class ListeTruck {
 
     public List<FoodTruck> getTruck() { return Arrays.asList(truck);}
 
-	@Override
-	public String toString() {
-		return "TYPE --->" + type + truck[1].toString();
-	}
 }

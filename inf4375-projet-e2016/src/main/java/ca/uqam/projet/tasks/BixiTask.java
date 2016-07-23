@@ -27,11 +27,11 @@ public class BixiTask {
 	public void execute() {
 		RestTemplate restTemplate = new RestTemplate();
 		ListeStation lStation = restTemplate.getForObject(URL, ListeStation.class);
-		log.info("la: " + lStation.toString());
 		List<Station> liste = lStation.getStations();
 		for (int i = 0; i<liste.size(); ++i) {
         	repository.insert(liste.get(i));
         }
+        log.info("Insertion des stations bixi dans la BD.");
 	}
 
 	
