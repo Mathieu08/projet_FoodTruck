@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/")
-public class CitationController {
+public class FoodTruckController {
 
   @Autowired FoodTruckRepository repo;
 

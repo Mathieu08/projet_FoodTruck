@@ -21,7 +21,7 @@ bouton.addEventListener("click", function(){
 
       var markers = new L.markerClusterGroup({
         iconCreateFunction: function(cluster) {
-          return L.divIcon({ html: '<b>' + cluster.getChildCount() + '</b>', className: 'myCluster', iconSize: L.point(32,32) });
+          return L.divIcon({ html: '<font size="4" style="color:#FE642E">' + cluster.getChildCount() + '</font>', className: 'myCluster', iconSize: L.point(32,32) });
         }
       });
 
