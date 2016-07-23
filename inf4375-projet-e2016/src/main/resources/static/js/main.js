@@ -7,7 +7,7 @@ var rep = document.getElementById("nbr")
 bouton.addEventListener("click", function(){
   var dateDebut = document.getElementById("dateDebut").value;
   var dateFin = document.getElementById("dateFin").value;
-  var url = "http://localhost:8080/horaires-camions?du=" + dateDebut + "&au=" + dateFin;
+  var url = window.location.href + "/horaires-camions?du=" + dateDebut + "&au=" + dateFin;
 
   var xhttp = new XMLHttpRequest();  
   xhttp.onreadystatechange = function() {
@@ -49,7 +49,7 @@ bouton.addEventListener("click", function(){
 function onClick(e) {
     var lat = e.latlng.lat;
     var lon = e.latlng.lng;
-    var urlStation = "http://localhost:8080/stations?lon=" + lon + "&lat=" + lat;
+    var urlStation = window.location.href + "/stations?lon=" + lon + "&lat=" + lat;
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
       if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
