@@ -67,8 +67,8 @@ public class FoodTruckRepository {
 			ps.setString(1, camion.getInfo().getIdTruck());
 			ps.setString(2, camion.getInfo().getNom());
 			ps.setString(3, camion.getInfo().getLieu());
-      ps.setDouble(4, camion.getLocation().getLon());
-      ps.setDouble(5, camion.getLocation().getLat());
+			ps.setDouble(4, camion.getLocation().getLon());
+			ps.setDouble(5, camion.getLocation().getLat());
 			ps.setString(6, camion.getInfo().getDate());
 			ps.setString(7, camion.getInfo().getHeureDebut());
 			ps.setString(8, camion.getInfo().getHeureFin());

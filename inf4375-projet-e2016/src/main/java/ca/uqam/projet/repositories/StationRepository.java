@@ -27,9 +27,9 @@ public class StationRepository {
 		return jdbcTemplate.update(conn -> {
 			PreparedStatement ps = conn.prepareStatement(INSERT_STMT);
 			ps.setString(1, station.getNom());
-            ps.setDouble(2, station.getLon());
-            ps.setDouble(3, station.getLat());
-		    ps.setInt(4, station.getNbVelos());
+			ps.setDouble(2, station.getLon());
+			ps.setDouble(3, station.getLat());
+			ps.setInt(4, station.getNbVelos());
 			ps.setInt(5, station.getDisponibilite());
 			return ps;
 		});
