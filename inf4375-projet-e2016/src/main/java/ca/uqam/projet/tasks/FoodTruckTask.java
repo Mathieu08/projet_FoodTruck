@@ -25,7 +25,7 @@ public class FoodTruckTask {
 
     @Autowired private FoodTruckRepository repository;
     
-    @Scheduled(cron="* * 0,12 * * ?")
+    @Scheduled(cron="0 0 0,12 * * ?")
     @PostConstruct
     public void execute() {
     	RestTemplate restTemplate = new RestTemplate();

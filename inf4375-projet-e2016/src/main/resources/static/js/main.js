@@ -3,12 +3,17 @@ tileLayer();
 
 var bouton = document.getElementById("bouton")
 var rep = document.getElementById("nbr")
-
+var stationMarker = [];
 bouton.addEventListener("click", function(){
   var dateDebut = document.getElementById("dateDebut").value;
   var dateFin = document.getElementById("dateFin").value;
-  var url = window.location.href + "/horaires-camions?du=" + dateDebut + "&au=" + dateFin;
+  var format = new RegExp("^[0-9]{4}-[0-9]{2}-[0-9]{2}$");
+  if (!format.test(dateDebut) || !format.test(dateFin)) {
+     rep.innerHTML = "Format des dates doit être: AAAA-MM-JJ ."
+     return;
+  };
 
+  var url = window.location.href + "/horaires-camions?du=" + dateDebut + "&au=" + dateFin;
   var xhttp = new XMLHttpRequest();  
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -47,6 +52,9 @@ bouton.addEventListener("click", function(){
 });
 
 function onClick(e) {
+  for(var i = 0; i < stationMarker.length; i++){
+    mymap.removeLayer(stationMarker[i]);
+  }
     var lat = e.latlng.lat;
     var lon = e.latlng.lng;
     var urlStation = window.location.href + "/stations?lon=" + lon + "&lat=" + lat;
@@ -55,10 +63,10 @@ function onClick(e) {
       if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
         var station = JSON.parse(xmlHttp.responseText);
         for (var i=0; i < station.length; i++) {
-          var stationMarker = L.marker([station[i].lat, station[i].lon]);
-          stationMarker.bindPopup("<b>Station Bixi</b><br><b>Nom: </b>" + station[i].nom + "<br><b>Nombre de velos: </b>" 
+          stationMarker[i] = L.marker([station[i].lat, station[i].lon]);
+          stationMarker[i].bindPopup("<b>Station Bixi</b><br><b>Nom: </b>" + station[i].nom + "<br><b>Nombre de vélos: </b>" 
                                   + station[i].nbVelos + "<br><b>Nombre de place disponible: </b>" + station[i].disponibilite);
-          stationMarker.addTo(mymap);
+          stationMarker[i].addTo(mymap);
         }
       }
     }
